@@ -8,10 +8,8 @@ class Dbtop250Pipeline(object):
 		self.file = open('top250.txt', 'wb')
 	def process_item(self, item, spider):
 		content=''
-		#line = json.dumps(dict(item)) + "\n"
 		for i in item['name']:
 			content += i+"\n"
-		#print content
 		self.file.write(content)
 		return item
 		
