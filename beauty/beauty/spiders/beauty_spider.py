@@ -1,16 +1,14 @@
 # coding: GBK
 import scrapy
-from scrapy.spiders import BaseSpider
 from beauty.items import BeautyItem
 from scrapy.linkextractors.lxmlhtml import LxmlLinkExtractor
 from bs4 import BeautifulSoup  
 import re
 
-class BeautySpider(BaseSpider):
+class BeautySpider(scrapy.spiders.Spider):
 	name = "beauty"
 	allowed_domains = ["t66y.com"]
 	start_urls = [
-	#	"http://t66y.com/htm_data/8/1708/2593408.html",
 		"http://t66y.com/thread0806.php?fid=8"
 	]
 
@@ -27,8 +25,6 @@ class BeautySpider(BaseSpider):
 		
 		#获取完所有二级页面内容后，跳转到下一页
 		next_page = "http://t66y.com/"+soup.find(string=re.compile(u"下一頁")).parent['href']
-		print "next_page =" , next_page
-
 		if next_page:
 			yield scrapy.Request(next_page, callback=self.parse)
 		
