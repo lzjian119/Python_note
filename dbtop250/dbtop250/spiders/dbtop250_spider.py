@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 import scrapy
-from scrapy.spiders import BaseSpider
+from scrapy.spiders import Spider
 from dbtop250.items import Dbtop250Item
 
-class Dbtop250Spider(BaseSpider):
+class Dbtop250Spider(Spider):
 	name = "dbtop250"
 	allowed_domains = ["douban.com"]
 	start_urls = [
