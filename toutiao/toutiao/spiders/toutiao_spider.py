@@ -29,7 +29,6 @@ class ToutiaoSpider(scrapy.spiders.Spider):
 		''' '''
 		sites = json.loads(response.body_as_unicode()) 
 		for site in sites['data']:  
-			print site['title']
 			u = "https://www.365yg.com/a"+site['group_id']+"#mid="+uid
 			yield scrapy.Request(u,callback=self.parse_content)
 				
