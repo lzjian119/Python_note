@@ -20,5 +20,3 @@ DEFAULT_REQUEST_HEADERS = {
 ITEM_PIPELINES = {
     'douyin.pipelines.DouyinPipeline': 300,
 }
-IMAGES_STORE = 'E:\\douyin'
-DOWNLOAD_DELAY = 1
