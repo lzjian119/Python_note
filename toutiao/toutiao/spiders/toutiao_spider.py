@@ -3,7 +3,7 @@ import scrapy
 from toutiao.items import ToutiaoItem
 from scrapy.linkextractors.lxmlhtml import LxmlLinkExtractor
 from bs4 import BeautifulSoup  
-import re,sys,json,time,random,urlparse,requests,binascii,base64
+import os,re,sys,json,time,random,urlparse,requests,binascii,base64
 
 reload(sys)
 sys.setdefaultencoding( "utf-8" )
@@ -13,6 +13,7 @@ def right_shift(val, n):
 
 uid="58986695909"
 count="10"
+dir_path = u'E:\\mp4\\toutiao\\'
 
 class ToutiaoSpider(scrapy.spiders.Spider):
 	name = "toutiao"
@@ -21,8 +22,7 @@ class ToutiaoSpider(scrapy.spiders.Spider):
 	start_urls = [
 		"http://www.365yg.com/c/user/article/?user_id="+uid+"&count="+count
 		#"http://www.365yg.com/a6558340435675185667/#mid="+uid
-		#"https://www.365yg.com/a6432825628286451970#mid=+uid
-		#"http://toutiao.com/group/6558704337646780936/"
+
 	]
 
 	def parse(self, response):	
@@ -60,8 +60,9 @@ class ToutiaoSpider(scrapy.spiders.Spider):
 		item['definition']=video_list[num]['definition']
 		main_url=video_list[num]['main_url']
 		item['url']=base64.standard_b64decode(main_url)
-
 		#for i in item:
 		#	print i,item[i]
 		yield item
-
+		
+	cmd	= "explorer "+dir_path
+	os.system(cmd)

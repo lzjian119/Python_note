@@ -8,7 +8,8 @@ class ToutiaoPipeline(object):
 		#目录不存在则新建
 		if not isExists:
 			os.makedirs(dir_path) 
-		name=dir_path+item['title']+'_'+item['definition']+".mp4";
+		name=dir_path+item['title']+'_'+item['definition']+".mp4"
+		txt=dir_path+item['name']+"_播放统计.txt"
 		#文件已存在提示"已下载"
 		if  os.path.exists(name):
 			print item['title']+"  已下载!"
@@ -18,4 +19,7 @@ class ToutiaoPipeline(object):
 				conn=urllib.urlopen(item['url'])
 				file_writer.write(conn.read())
 				file_writer.close()
+			with  open(txt,'a+') as t:
+				t.write(item['title']+"  播放次数: "+item['count']+"\n")
+				t.close()
 
