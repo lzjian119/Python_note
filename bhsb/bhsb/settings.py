@@ -19,5 +19,3 @@ DEFAULT_REQUEST_HEADERS = {
 ITEM_PIPELINES = {
     'bhsb.pipelines.BhsbPipeline': 300,
 }
-IMAGES_STORE = 'E:\\bhsb'
-DOWNLOAD_DELAY = 0.3

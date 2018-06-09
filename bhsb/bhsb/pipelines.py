@@ -2,7 +2,7 @@
 import sys,os,urllib
 class BhsbPipeline(object):
 	def process_item(self, item, spider):
-		dir_path = 'E:\\\\bhsb\\'+item['title']+"\\"
+		dir_path = 'E:\\py\\bhsb\\'+item['title']+"\\"
 		for i,img in enumerate(item['image_urls']):
 			hou="."+str(img.split('.')[-1])
 			isExists=os.path.exists(dir_path)
