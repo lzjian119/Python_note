@@ -63,6 +63,4 @@ class ToutiaoSpider(scrapy.spiders.Spider):
 		#for i in item:
 		#	print i,item[i]
 		yield item
-		
-	cmd	= "explorer "+dir_path
-	os.system(cmd)
+	
