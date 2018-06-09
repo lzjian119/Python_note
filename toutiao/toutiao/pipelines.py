@@ -3,7 +3,7 @@ import sys,os,urllib
 
 class ToutiaoPipeline(object):
 	def process_item(self, item, spider):
-		dir_path = u'E:\\\\mp4\\toutiao\\'+item['name']+"\\"
+		dir_path = u'E:\\\\py\\mp4\\toutiao\\'+item['name']+"\\"
 		isExists=os.path.exists(dir_path)
 		#目录不存在则新建
 		if not isExists:

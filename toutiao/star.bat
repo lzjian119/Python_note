@@ -1,2 +1,2 @@
 scrapy crawl toutiao --nolog
-pause
+cmd
