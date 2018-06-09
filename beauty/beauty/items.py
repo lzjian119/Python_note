@@ -7,3 +7,4 @@ class BeautyItem(scrapy.Item):
 	image_urls = scrapy.Field()
 	images = scrapy.Field()
 	image_paths = scrapy.Field()
+	date = scrapy.Field()

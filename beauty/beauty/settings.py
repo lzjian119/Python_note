@@ -22,5 +22,5 @@ DEFAULT_REQUEST_HEADERS = {
 ITEM_PIPELINES = {
     'beauty.pipelines.MyImagesPipeline': 300,
 }
-IMAGES_STORE = 'E:\\test'
-DOWNLOAD_DELAY = 0.25
+IMAGES_STORE = 'E:\\py\\beauty'
+DOWNLOAD_DELAY = 0.5

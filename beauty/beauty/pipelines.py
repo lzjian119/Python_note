@@ -14,8 +14,13 @@ class MyImagesPipeline(ImagesPipeline):
 		#下一句注释的为报错原本图片的名称
 		#image_guid = request.url.split('/')[-1]
 		#print "item=",item['name'][index],"\n index=",index
-		#raw_input(' ')  
-		return '%s/%s' % (item['name'],image_guid)
+		#raw_input(' ') 
+		#不按日期分目录
+		#return '%s/%s' % (item['name'],image_guid)
+		#按日期分目录
+		path = item['date']+"\\"+item['name']
+		return '%s/%s' % (path,image_guid)
+		
 		
 	def get_media_requests(self, item, info):
 		for image_url in item['image_urls']:
