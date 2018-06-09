@@ -1,11 +1,9 @@
 # -*- coding: utf-8 -*-
 import scrapy
-from douyin.items import DouyinItem
-from scrapy.linkextractors.lxmlhtml import LxmlLinkExtractor
-from bs4 import BeautifulSoup  
-import re,sys,json,time,random,urlparse,os
-import urllib,urllib2,requests,binascii,base64
+from douyin.items import DouyinItem  
 from ..settings import DEFAULT_REQUEST_HEADERS
+import sys,json,requests
+
 reload(sys)
 sys.setdefaultencoding( "utf-8" )
 
@@ -13,9 +11,7 @@ def right_shift(val, n):
     return val >> n if val >= 0 else (val + 0x100000000) >> n
 
 uid="85757099860"
-#uid="67176232618"
 count="10"
-dir_path = u'E:\\mp4\\douyin\\'
 headers=DEFAULT_REQUEST_HEADERS
 
 class DouyinSpider(scrapy.spiders.Spider):
@@ -43,8 +39,7 @@ class DouyinSpider(scrapy.spiders.Spider):
 			else:
 				item['url']=r.headers['Location']
 			yield item
-		cmd	= "explorer "+dir_path
-		os.system(cmd)
+
 		
 
 

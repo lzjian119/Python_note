@@ -3,7 +3,7 @@ import sys,os,urllib,time
 
 class DouyinPipeline(object):
 	def process_item(self, item, spider):
-		dir_path = u'E:\\\\mp4\\douyin\\'+item['author']+"_"+item['uid']+"\\"
+		dir_path = u'E:\\\\py\\mp4\\douyin\\'+item['author']+"_"+item['uid']+"\\"
 		isExists=os.path.exists(dir_path)
 		#目录不存在则新建
 		if not isExists:
