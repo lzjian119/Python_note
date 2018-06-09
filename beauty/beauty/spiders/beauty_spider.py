@@ -3,7 +3,9 @@ import scrapy
 from beauty.items import BeautyItem
 from scrapy.linkextractors.lxmlhtml import LxmlLinkExtractor
 from bs4 import BeautifulSoup  
-import re
+import re,sys
+reload(sys)
+sys.setdefaultencoding( "utf-8" )
 
 class BeautySpider(scrapy.spiders.Spider):
 	name = "beauty"
@@ -33,7 +35,13 @@ class BeautySpider(scrapy.spiders.Spider):
 		item = BeautyItem()
 		item['title'] = response.xpath('//head/title/text()').extract()[0]
 		item['name'] =  response.xpath('//h4/text()').extract()[0]
-		item['image_urls'] = response.xpath('//*[@class="tpc_content do_not_catch"]/input/@src').extract()
+		image_urls1 = response.xpath('//*[@class="tpc_content do_not_catch"]/input/@src').extract()
+		image_urls2 = response.xpath('//*[@class="tpc_content do_not_catch"]/input/@data-src').extract()
+		
+		#item['image_urls'] = response.xpath('//*[@class="tpc_content do_not_catch"]/input/@data-src').extract()
+		item['image_urls'] = image_urls1 + image_urls2
+		date = response.xpath('//*[@class="tipad"]/text()').extract()
+		item['date']=date[1].split(' ', 1 )[0].split(':', 1 )[1]
 		yield item
 	
 		
