@@ -23,4 +23,4 @@ ITEM_PIPELINES = {
     'beauty.pipelines.MyImagesPipeline': 300,
 }
 IMAGES_STORE = 'E:\\py\\beauty'
-DOWNLOAD_DELAY = 0.5
+DOWNLOAD_DELAY = 0.2
